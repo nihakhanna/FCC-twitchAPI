@@ -187,9 +187,9 @@ h3 {
   for (var i = 0; i < users.length; i++) {
     (function(i) { 
     $.when(
-      $.getJSON("https://api.twitch.tv/kraken/channels/" + users[i], function(json) {
+      $.getJSON("https://api.twitch.tv/kraken/channels/" + users[i] + "?client_id=ifbf8vby74fq9ccfqm8uor1jvshao58&callback=?", function(json) {
       userData[i] = json;
-    }), $.getJSON("https://api.twitch.tv/kraken/streams/" + users[i] + "?callback=?", function(data) {
+    }), $.getJSON("https://api.twitch.tv/kraken/streams/" + users[i] + "?client_id=ifbf8vby74fq9ccfqm8uor1jvshao58&callback=?", function(data) {
       streams[i] = data;
         if(streams[i].stream === undefined) {
          $(".offline").append("<div class = 'userOff'><div class = 'logo'><img src = 'http://images.clipartpanda.com/question-mark-black-and-white-Icon-round-Question_mark.jpg'/></div><div class = 'name'><a href = 'http://s.codepen.io/boomerang/907184cdc5c59c040617a41d0a89175d1454329168904/undefined' target=_blank><h3>"+users[i]+"</h3></a></div><div class = 'stream'>Account Closed</div></div>");
